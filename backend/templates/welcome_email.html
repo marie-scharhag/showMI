@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to showMI</title>
+</head>
+<body>
+    <p>Hallo {{ user.first_name }} {{ user.last_name }},</p>
+    <p>An Admin invited you to use showMI! That's your Login Data:</p>
+    <ul>
+        <li>Your Email: {{ user.email }}</li>
+        <li>Temporary password: {{ temporary_password }}</li>
+    </ul>
+    <p>You should change your password after your first login.</p>
+</body>
+</html>

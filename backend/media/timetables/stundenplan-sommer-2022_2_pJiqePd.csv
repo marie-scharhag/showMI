@@ -1,0 +1,199 @@
+Raum;Stg;LV-Nr;Fachsem1;LV-Name;Typ;Grp;Doz1NName;Doz1VName;WTag;Startzeit;Dauer_min
+C001;AI-B4;2111;2;Programmiermethoden und -techniken;V;;Panitz;Sven Eric;Di;11:45:00;90
+C213;AI-B4;2112;2;Programmiermethoden und -techniken (Praktikum);P;A;Hinkel;Georg;Mo;11:45:00;90
+C237;AI-B4;2112;2;Programmiermethoden und -techniken (Praktikum);P;B;Hinkel;Georg;Mo;14:15:00;90
+C001;AI-B4;2112;2;Programmiermethoden und -techniken (Praktikum);P;C;Hinkel;Georg;Mo;16:00:00;90
+C213;AI-B4;2112;2;Programmiermethoden und -techniken (Praktikum);P;D;Panitz;Sven Eric;Di;10:00:00;90
+D42;AI-B4;2112;2;Programmiermethoden und -techniken (Praktikum);P;E;Panitz;Sven Eric;Mi;16:00:00;90
+D18;AI-B4;2112;2;Programmiermethoden und -techniken (Praktikum);P;F;Weier;Martin;Fr;14:15:00;90
+D13;AI-B4;2112;2;Programmiermethoden und -techniken (Praktikum);P;G;Weier;Martin;Fr;16:00:00;90
+C213;AI-B4;2112;2;Programmiermethoden und -techniken (Praktikum);P;H;Weier;Martin;Fr;17:45:00;90
+C001;AI-B4;2121;2;Algorithmen und Datenstrukturen;V;;Ulges;Adrian;Fr;10:00:00;90
+D18;AI-B4;2122;2;Algorithmen und Datenstrukturen (Praktikum);P;A;Campos;Viola;Mi;08:15:00;90
+C003;AI-B4;2122;2;Algorithmen und Datenstrukturen (Praktikum);P;B;Campos;Viola;Mi;10:00:00;90
+C005;AI-B4;2122;2;Algorithmen und Datenstrukturen (Praktikum);P;C;Igler;Bodo;Do;10:00:00;90
+C217;AI-B4;2122;2;Algorithmen und Datenstrukturen (Praktikum);P;D;Igler;Bodo;Do;14:15:00;90
+C218;AI-B4;2122;2;Algorithmen und Datenstrukturen (Praktikum);P;E;Igler;Bodo;Do;16:00:00;90
+C106;AI-B4;2122;2;Algorithmen und Datenstrukturen (Praktikum);P;F;Ulges;Adrian;Fr;11:45:00;90
+C218;AI-B4;2122;2;Algorithmen und Datenstrukturen (Praktikum);P;G;Ulges;Adrian;Fr;14:15:00;90
+C230;AI-B4;2122;2;Algorithmen und Datenstrukturen (Praktikum);P;H;Ulges;Adrian;Do;11:45:00;90
+C145;AI-B4;2122;2;Algorithmen und Datenstrukturen (Praktikum);P;I;Meyer;Ferdinand;Di;08:15:00;90
+C137;AI-B4;2122;2;Algorithmen und Datenstrukturen (Praktikum);P;J;Meyer;Ferdinand;Di;10:00:00;90
+B12;AI-B4;2122;2;Algorithmen und Datenstrukturen (Praktikum);P;K;Weier;Martin;Do;16:00:00;90
+B114;AI-B4;2122;2;Algorithmen und Datenstrukturen (Praktikum);P;L;Weier;Martin;Do;17:45:00;90
+B13;AI-B4;2122;2;Algorithmen und Datenstrukturen (Praktikum);P;M;Ulges;Adrian;Do;17:45:00;90
+B07;AI-B4;2122;2;Algorithmen und Datenstrukturen (Praktikum);P;N;Igler;Bodo;Fr;11:45:00;90
+C137;AI-B4;2122;2;Algorithmen und Datenstrukturen (Praktikum);P;O;Campos;Viola;Mi;11:45:00;90
+C003;AI-B4;2131;2;Datenbanken;V;;Iwer;Eva;Mi;11:45:00;90
+C106;AI-B4;2132;2;Datenbanken (Praktikum);P;A;Iwer;Eva;Mi;10:00:00;90
+C001;AI-B4;2132;2;Datenbanken (Praktikum);P;B;Iwer;Eva;Mi;08:15:00;90
+C213;AI-B4;2132;2;Datenbanken (Praktikum);P;C;Knauf;Wolfgang;Mi;16:00:00;90
+C237;AI-B4;2132;2;Datenbanken (Praktikum);P;D;Knauf;Wolfgang;Mi;17:45:00;90
+C001;AI-B4;2132;2;Datenbanken (Praktikum);P;E;Rau;Linda;Mo;11:45:00;90
+C213;AI-B4;2132;2;Datenbanken (Praktikum);P;F;Rau;Linda;Mo;14:15:00;90
+D42;AI-B4;2132;2;Datenbanken (Praktikum);P;G;Kaiser;Marvin;Do;17:45:00;90
+D18;AI-B4;2132;2;Datenbanken (Praktikum);P;H;Peter;Marvin;Do;10:00:00;90
+D13;AI-B4;2141;2;Rechnernetze und Telekommunikation;V;;Geib;Bernhard;Mi;14:15:00;90
+C213;AI-B4;2142;2;Rechnernetze und Telekommunikation (Praktikum);P;A;Krenz;Alexander;Mo;16:00:00;90
+C001;AI-B4;2142;2;Rechnernetze und Telekommunikation (Praktikum);P;B;Krenz;Alexander;Mo;17:45:00;90
+D18;AI-B4;2142;2;Rechnernetze und Telekommunikation (Praktikum);P;C;Rupp;Tatjana;Do;16:00:00;90
+C003;AI-B4;2142;2;Rechnernetze und Telekommunikation (Praktikum);P;D;Rupp;Tatjana;Do;17:45:00;90
+C005;AI-B4;2142;2;Rechnernetze und Telekommunikation (Praktikum);P;E;Krenz;Alexander;Fr;16:00:00;90
+C217;AI-B4;2142;2;Rechnernetze und Telekommunikation (Praktikum);P;F;Krenz;Alexander;Fr;17:45:00;90
+C218;AI-B4;2142;2;Rechnernetze und Telekommunikation (Praktikum);P;G;Geib;Bernhard;Mi;16:00:00;90
+C106;AI-B4;2142;2;Rechnernetze und Telekommunikation (Praktikum);P;H;Geib;Bernhard;Do;11:45:00;90
+C218;AI-B4;2142;2;Rechnernetze und Telekommunikation (Praktikum);P;I;Geib;Bernhard;Do;10:00:00;90
+C230;AI-B4;2142;2;Rechnernetze und Telekommunikation (Praktikum);P;J;Kranz;Alexander;Mi;17:45:00;90
+C145;AI-B4;2142;2;Rechnernetze und Telekommunikation (Praktikum);P;K;Kranz;Alexander;Mi;19:30:00;90
+C137;AI-B4;2211;2;Lineare Algebra;V;;Zschiegner;Marc-Alexander;Do;14:15:00;90
+B12;AI-B4;2212;2;Lineare Algebra (Übung);Ü;A;Ratajczyk;Björn;Do;16:00:00;90
+B114;AI-B4;2212;2;Lineare Algebra (Übung);Ü;B;Merkel;Tatjana;Fr;14:15:00;90
+B13;AI-B4;2212;2;Lineare Algebra (Übung);Ü;C;Merkel;Tatjana;Fr;16:00:00;90
+B07;AI-B4;2212;2;Lineare Algebra (Übung);Ü;D;Merkel;Tatjana;Fr;11:45:00;90
+C137;AI-B4;4111;4;Automatentheorie und Formale Sprachen;V;;Reith;Steffen;Do;08:15:00;90
+C003;AI-B4;4112;4;Automatentheorie und Formale Sprachen (Übung);Ü;A;Reith;Steffen;Do;10:00:00;90
+C106;AI-B4;4112;4;Automatentheorie und Formale Sprachen (Übung);Ü;B;Reith;Steffen;Mi;16:00:00;90
+C001;AI-B4;4112;4;Automatentheorie und Formale Sprachen (Übung);Ü;C;Reith;Steffen;Mi;17:45:00;90
+C213;AI-B4;4121;4;Security (Übung);Ü;A;Stöttinger;Marc;Fr;10:00:00;90
+C237;AI-B4;4121;4;Security (Übung);Ü;B;Stöttinger;Marc;Mi;14:15:00;90
+C001;AI-B4;4121;4;Security (Übung);Ü;C;Stöttinger;Marc;Mi;16:00:00;90
+C213;AI-B4;4121;4;Security (Übung);Ü;D;Stöttinger;Marc;Mi;17:45:00;90
+D42;AI-B4;4121;4;Security;V;;Stöttinger;Marc;Fr;08:15:00;90
+D18;AI-B4;4131;4;Verteilte Systeme;V;;Hinkel;Georg;Mi;08:15:00;90
+D13;AI-B4;4132;4;Verteilte Systeme (Praktikum);P;A;Hinkel;Georg;Mi;10:00:00;90
+C213;AI-B4;4132;4;Verteilte Systeme (Praktikum);P;B;Hinkel;Georg;Mi;11:45:00;90
+C001;AI-B4;4132;4;Verteilte Systeme (Praktikum);P;C;Hinkel;Georg;Mi;14:15:00;90
+D18;AI-B4;4132;4;Verteilte Systeme (Praktikum);P;D;Kaeppel;Johannes;Mo;10:00:00;90
+C003;AI-B4;4132;4;Verteilte Systeme (Praktikum);P;E;Kaeppel;Johannes;Mo;11:45:00;90
+C005;AI-B4;4132;4;Verteilte Systeme (Praktikum);P;F;Kaeppel;Johannes;Mo;14:15:00;90
+C217;AI-B4;4141;4;Webbasierte Anwendungen;V;;Martin;Ludger;Di;08:15:00;90
+C218;AI-B4;4142;4;Webbasierte Anwendungen (Praktikum);P;A;Martin;Ludger;Di;10:00:00;90
+C106;AI-B4;4142;4;Webbasierte Anwendungen (Praktikum);P;B;Martin;Ludger;Mo;08:15:00;90
+C218;AI-B4;4142;4;Webbasierte Anwendungen (Praktikum);P;C;Martin;Ludger;Mo;10:00:00;90
+C230;AI-B4;4142;4;Webbasierte Anwendungen (Praktikum);P;D;Stoy;Patrick;Do;10:00:00;90
+C145;AI-B4;4142;4;Webbasierte Anwendungen (Praktikum);P;E;Stoy;Patrick;Do;11:45:00;90
+C137;AI-B4;4142;4;Webbasierte Anwendungen (Praktikum);P;F;Stoy;Patrick;Fr;10:00:00;90
+B12;AI-B4;4142;4;Webbasierte Anwendungen (Praktikum);P;G;Stoy;Patrick;Fr;11:45:00;90
+B114;AI-B4;4142;4;Webbasierte Anwendungen (Praktikum);P;H;Tajja;Yasmina;Mo;16:00:00;90
+B13;AI-B4;4142;4;Webbasierte Anwendungen (Praktikum);P;I;Tajja;Yasmina;Mo;17:45:00;90
+B07;AI-B4;5111;5;Wahlprojekt (Praktikum);P;;Panitz;Sven Eric;Mi;10:00:00;270
+C137;AI-B4;5121;5;Fachseminar;S;;Rau;Linda;Mo;10:00:00;90
+C003;AI-B4;7101;4;3D-Modellierung und Animation;P;;Weier;Martin;Fr;11:45:00;90
+C106;AI-B4;7101;4;3D-Modellierung und Animation;V;;Weier;Martin;Fr;10:00:00;90
+C001;AI-B4;7111;4;Ausgewähltes Thema der Angewandten Informatik A (Praktikum);P;;Rau;Jochen;Fr;15:15:00;90
+C213;AI-B4;7111;4;Ausgewähltes Thema der Angewandten Informatik A;V;;Rau;Jochen;Fr;13:30:00;90
+C237;AI-B4;7161;4;Digitale Bildverarbeitung;P;;Fu;Biying;Fr;16:00:00;90
+C001;AI-B4;7161;4;Digitale Bildverarbeitung;V;;Fu;Biying;Fr;14:15:00;90
+C213;AI-B4;7181;4;eGovernment;P;;Hünemohr;Holger;Mo;17:45:00;90
+D42;AI-B4;7181;4;eGovernment;V;;Hünemohr;Holger;Mo;16:00:00;90
+D18;AI-B4;7191;4;Funktionale Programmierung (Praktikum);P;;Panitz;Sven Eric;Do;14:15:00;90
+D13;AI-B4;7191;4;Funktionale Programmierung;V;;Panitz;Sven Eric;Do;10:00:00;90
+C213;AI-B4;7201;4;Fehlertolerante Systeme (Praktikum);P;;Geib;Bernhard;Di;11:45:00;90
+C001;AI-B4;7201;4;Fehlertolerante Systeme;V;;Geib;Bernhard;Di;10:00:00;90
+D18;AI-B4;7231;4;Programmieren in C++;P;;Faquiri;Silvia-Dorotheea;Mo;14:15:00;90
+C003;AI-B4;7231;4;Programmieren in C++;V;;Faquiri;Silvia-Dorotheea;Mo;11:45:00;90
+C005;AI-B4;7271;4;Quantencomputing (Praktikum);P;;Rehberg;Martin;Fr;11:45:00;90
+C217;AI-B4;7271;4;Quantencomputing;V;;Rehberg;Martin;Fr;10:00:00;90
+C218;AI-B4;7291;4;Skript-Sprachen (Praktikum);P;A;Werntges;Heinz;Mi;14:15:00;90
+C106;AI-B4;7291;4;Skript-Sprachen (Praktikum);P;B;Werntges;Heinz;Mi;16:00:00;90
+C218;AI-B4;7291;4;Skript-Sprachen;V;;Werntges;Heinz;Mi;12:30:00;90
+C230;AI-B4;7331;4;Usability Engineering (Praktikum);P;A;Faquiri;Silvia-Dorotheea;Mi;11:45:00;90
+C145;AI-B4;7331;4;Usability Engineering;V;;Faquiri;Silvia-Dorotheea;Mi;10:00:00;90
+C137;AI-B4;7341;4;XML-Technologien (Praktikum);P;;Werntges;Heinz;Fr;16:00:00;90
+B12;AI-B4;7341;4;XML-Technologien;V;;Werntges;Heinz;Fr;14:15:00;90
+B114;AI-B4;7421;4;Blockchain-Technologie;P;;Zschiegner;Marc-Alexander;Do;17:45:00;90
+B13;AI-B4;7421;4;Blockchain-Technologie;V;;Zschiegner;Marc-Alexander;Do;16:00:00;90
+B07;AI-B4;7491;4;Agiles Projektmanagement;P;;Iwer;Eva;Mo;10:00:00;90
+C137;AI-B4;7491;4;Agiles Projektmanagement;V;;Iwer;Eva;Mo;08:15:00;90
+D11;MI-B4;2111;2;Algorithmen und Datenstrukturen;V;;Krechel;Dirk;Mi;14:15:00;90
+D12;MI-B4;2112;2;Algorithmen und Datenstrukturen (Praktikum);P;A;Calvus;Daniela;Mi;11:45:00;90
+D13;MI-B4;2112;2;Algorithmen und Datenstrukturen (Praktikum);P;B;Krechel;Dirk;Mi;11:45:00;90
+D17;MI-B4;2112;2;Algorithmen und Datenstrukturen (Praktikum);P;C;Calvus;Daniela;Mi;10:00:00;90
+D18;MI-B4;2112;2;Algorithmen und Datenstrukturen (Praktikum);P;D;Krechel;Dirk;Mi;10:00:00;90
+D11;MI-B4;2121;2;Auszeichnungssprachen;V;;Schaible;Philipp;Mo;10:00:00;90
+D17;MI-B4;2122;2;Auszeichnungssprachen (Praktikum);P;A;Schaible;Philipp;Mo;11:45:00;90
+D13;MI-B4;2122;2;Auszeichnungssprachen (Praktikum);P;B;Calvus;Daniela;Mo;14:15:00;90
+D12;MI-B4;2122;2;Auszeichnungssprachen (Praktikum);P;C;Calvus;Daniela;Mo;11:45:00;90
+D15;MI-B4;2122;2;Auszeichnungssprachen (Praktikum);P;D;Schaible;Philipp;Mo;14:15:00;90
+D11;MI-B4;2131;2;Programmieren 2;V;;Berdux;Jörg;Do;10:00:00;90
+D12;MI-B4;2132;2;Programmieren 2 (Praktikum);P;A;Hoitz;Kim;Fr;10:00:00;90
+D14;MI-B4;2132;2;Programmieren 2 (Praktikum);P;B;Berdux;Jörg;Fr;11:45:00;90
+D12;MI-B4;2132;2;Programmieren 2 (Praktikum);P;C;Hoitz;Kim;Fr;11:45:00;90
+D13;MI-B4;2132;2;Programmieren 2 (Praktikum);P;D;Berdux;Jörg;Fr;10:00:00;90
+D14;MI-B4;2241;2;Gestaltung elektronischer Medien (Praktikum);P;A;Hartmann;Jens;Do;14:15:00;90
+D15;MI-B4;2241;2;Gestaltung elektronischer Medien (Praktikum);P;B;Pedersen;Sebastian;Do;16:00:00;90
+D13;MI-B4;2241;2;Gestaltung elektronischer Medien (Praktikum);P;C;Hartmann;Jens;Do;16:00:00;90
+D15;MI-B4;2241;2;Gestaltung elektronischer Medien (Praktikum);P;D;Pedersen;Sebastian;Do;14:15:00;90
+D14;MI-B4;2241;2;Gestaltung elektronischer Medien;V;;Pedersen;Sebastian;Do;11:45:00;90
+D11;MI-B4;2351;2;Lineare Algebra (Übung);Ü;A;Reichenauer;Roland;Mi;10:00:00;90
+D11;MI-B4;2351;2;Lineare Algebra (Übung);Ü;B;Reichenauer;Roland;Mi;11:45:00;90
+D11;MI-B4;2351;2;Lineare Algebra;V;;Reichenauer;Roland;Mi;08:15:00;90
+D11;MI-B4;2461;2;IT-Recht und Datenschutz (Übung);Ü;A;Breckheimer;Stephan;Fr;16:15:00;90
+D11;MI-B4;2461;2;IT-Recht und Datenschutz (Übung);Ü;B;Breckheimer;Stephan;Fr;17:45:00;90
+D11;MI-B4;2461;2;IT-Recht und Datenschutz;V;;Breckheimer;Stephan;Fr;14:30:00;90
+D14;MI-B4;4121;4;Computergrafik;V;;Schwanecke;Ulrich;Mi;10:00:00;90
+D14;MI-B4;4122;4;Computergrafik (Praktikum);P;A;Stahl;Fabian;Mi;16:00:00;90
+D14;MI-B4;4122;4;Computergrafik (Praktikum);P;B;Schwanecke;Ulrich;Fr;10:00:00;90
+D14;MI-B4;4122;4;Computergrafik (Praktikum);P;C;Schwanecke;Ulrich;Mi;14:15:00;90
+D14;MI-B4;4131;4;Rechnernetze und Betriebssysteme;V;;Schaible;Philipp;Do;10:00:00;90
+D13;MI-B4;4132;4;Rechnernetze und Betriebssysteme (Praktikum);P;A;Schaible;Philipp;Do;14:15:00;90
+D12;MI-B4;4132;4;Rechnernetze und Betriebssysteme (Praktikum);P;C;Schaible;Philipp;Do;11:45:00;90
+D11;MI-B4;4141;4;Softwaretechnik;V;;Weitz;Wolfgang;Mi;11:45:00;90
+D12;MI-B4;4142;4;Softwaretechnik (Praktikum);P;A;Weitz;Wolfgang;Mi;14:15:00;90
+D14;MI-B4;4142;4;Softwaretechnik (Praktikum);P;B;Weitz;Wolfgang;Mi;16:00:00;90
+D11;MI-B4;4151;4;Webbasierte Anwendungen;V;;Weitz;Wolfgang;Fr;11:45:00;90
+D13;MI-B4;4152;4;Webbasierte Anwendungen (Praktikum);P;A;Henschel;Evelyn;Fr;15:00:00;90
+D12;MI-B4;4152;4;Webbasierte Anwendungen (Praktikum);P;C;Weitz;Wolfgang;Fr;14:15:00;90
+D12;MI-B4;4251;4;Animation (Praktikum);P;A;Ederer;Peter;Mo;14:15:00;90
+D15;MI-B4;4251;4;Animation (Praktikum);P;B;Ederer;Peter;Mo;11:45:00;90
+D14;MI-B4;4251;4;Animation;V;;Ederer;Peter;Mo;10:00:00;90
+D13;MI-B4;7211;5;Künstliche Intelligenz (Praktikum);P;A;Ulges;Adrian;Mo;14:15:00;90
+D12;MI-B4;7211;5;Künstliche Intelligenz (Praktikum);P;B;Ulges;Adrian;Mo;16:00:00;90
+D14;MI-B4;7211;5;Künstliche Intelligenz;V;;Ulges;Adrian;Mo;11:45:00;90
+D15;MI-B4;7551;5;Computer Games;P;;Volland;Matthias;Fr;11:45:00;180
+D14;MI-B4;7551;5;Computer Games;V;;Volland;Matthias;Fr;10:00:00;90
+D15;MI-B4;7611;5;Mobile Computing;P;;Berdux;Jörg;Do;16:00:00;195
+D14;MI-B4;7611;5;Mobile Computing;V;;Berdux;Jörg;Do;14:15:00;90
+D13;MI-B4;7841;5;Einführung in Cloud Computing;P;;Schaible;Philipp;Mi;10:00:00;195
+D11;MI-B4;7841;5;Einführung in Cloud Computing;V;;Schaible;Philipp;Mi;08:15:00;90
+C001;TS-B1;2511;2;Hardwarenahe Programmierung II;V;;Stöttinger;Marc;Do;10:00:00;90
+C213;TS-B1;2512;2;Hardwarenahe Programmierung II (Praktikum);P;A;Schreiner;Carin;Do;11:45:00;90
+C237;TS-B1;2521;2;Mikroprozessortechnik;V;;Stöttinger;Marc;Fr;14:15:00;90
+C001;TS-B1;2522;2;Mikroprozessortechnik (Praktikum);P;A;Stöttinger;Marc;Fr;16:00:00;90
+C213;TS-B1;4511;4;Echtzeitverarbeitung (Praktikum);P;A;Beckmann;Kai;Do;14:15:00;90
+D42;TS-B1;4511;4;Echtzeitverarbeitung;V;;Beckmann;Kai;Do;16:00:00;90
+D18;TS-B1;7111;4;Ausgewähltes Thema der Technischen Informatik (Praktikum);P;;Rau;Jochen;Fr;15:15:00;90
+D13;TS-B1;7111;4;Ausgewähltes Thema der Technischen Informatik;V;;Rau;Jochen;Fr;13:30:00;90
+C213;TS-B1;7451;4;Embedded IT-Security;P;;Campos;Fabio Felipe;Mi;11:45:00;90
+C001;TS-B1;7451;4;Embedded IT-Security;V;;Campos;Fabio Felipe;Mi;10:00:00;90
+D18;WI-B2;2111;2;Programmiermethoden;V;;Turban;Bernhard;Di;10:00:00;90
+C003;WI-B2;2112;2;Programmiermethoden (Praktikum);P;A;Lerch;David;Fr;11:45:00;90
+C005;WI-B2;2112;2;Programmiermethoden (Praktikum);P;B;Lerch;David;Fr;14:15:00;90
+C217;WI-B2;2112;2;Programmiermethoden (Praktikum);P;C;Lerch;David;Mo;10:00:00;90
+C218;WI-B2;2112;2;Programmiermethoden (Praktikum);P;D;Lerch;David;Mo;14:15:00;90
+C106;WI-B2;2112;2;Programmiermethoden (Praktikum);P;E;Turban;Bernhard;Do;14:15:00;90
+C218;WI-B2;2112;2;Programmiermethoden (Praktikum);P;F;Turban;Bernhard;Do;11:45:00;90
+C230;WI-B2;2211;2;Wirtschaftsmathematik;V;;Zschiegner;Marc-Alexander;Fr;08:15:00;90
+C145;WI-B2;2212;2;Wirtschaftsmathematik (Übung);Ü;A;Ratajczyk;Björn;Do;17:45:00;90
+C137;WI-B2;2212;2;Wirtschaftsmathematik (Übung);Ü;B;Ratajczyk;Björn;Do;14:15:00;90
+B12;WI-B2;2311;2;Betriebliches Rechnungswesen (Übung);Ü;A;Adler;Peter;Mi;11:45:00;90
+B114;WI-B2;2311;2;Betriebliches Rechnungswesen (Übung);Ü;B;Adler;Peter;Mi;14:15:00;90
+B13;WI-B2;2311;2;Betriebliches Rechnungswesen;V;;Adler;Peter;Mi;10:00:00;90
+B07;WI-B2;2411;2;Geschäftsprozessmanagement;V;;Hünemohr;Holger;Di;11:45:00;90
+C137;WI-B2;2412;2;Geschäftsprozessmanagement (Übung);Ü;A;Müller;Moritz;Mi;11:45:00;90
+C003;WI-B2;2412;2;Geschäftsprozessmanagement (Übung);Ü;B;Müller;Moritz;Mi;14:15:00;90
+C106;WI-B2;2412;2;Geschäftsprozessmanagement (Übung);Ü;C;Hünemohr;Holger;Mo;11:45:00;90
+C001;WI-B2;4111;4;Softwaretechnik;V;;Igler;Bodo;Mi;10:00:00;90
+C213;WI-B2;4112;4;Softwaretechnik (Praktikum);P;A;Igler;Bodo;Mi;11:45:00;90
+C237;WI-B2;4112;4;Softwaretechnik (Praktikum);P;D;Tkocz;Daniel;Mo;10:00:00;90
+C001;WI-B2;4112;4;Softwaretechnik (Praktikum);P;E;Tkocz;Daniel;Mo;11:45:00;90
+C213;WI-B2;4411;4;Business Intelligence;V;;Schott;Ulrich;Do;10:00:00;180
+D42;WI-B2;4412;4;Business Intelligence (Praktikum);P;A;Schott;Ulrich;Fr;10:00:00;90
+D18;WI-B2;4412;4;Business Intelligence (Praktikum);P;B;Schott;Ulrich;Do;14:15:00;90
+D13;WI-B2;4421;4;Digitale Transformation;V;;Ricken;Michael;Di;10:00:00;90
+C213;WI-B2;4422;4;Digitale Transformation (Praktikum);P;A;Ricken;Michael;Di;11:45:00;90
+C001;WI-B2;4422;4;Digitale Transformation (Praktikum);P;B;Ricken;Michael;Mo;14:15:00;90
+D18;WI-B2;7361;4;Controlling (Praktikum);P;;Schaumburg;Volker;Mo;17:45:00;90
+C003;WI-B2;7361;4;Controlling;V;;Schaumburg;Volker;Mo;16:00:00;90
+C005;WI-B2;7401;4;F&E Management;P;;Hellenschmidt;Michael;Mo;10:00:00;90
+C217;WI-B2;7401;4;F&E Management;V;;Hellenschmidt;Michael;Mo;08:15:00;90

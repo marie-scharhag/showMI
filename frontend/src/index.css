@@ -1,0 +1,23 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+@import 'bootstrap/dist/css/bootstrap.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+:root{
+  --fc-now-indicator-color: #9BC328;
+  --fc-today-bg-color: #9BC30028;
+  /*--fc-event-bg-color: #9BC328;*/
+  /*--fc-event-border-color: #9BC328;*/
+
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
