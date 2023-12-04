@@ -222,7 +222,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 
 CRONJOBS = [
-    ('*/15 * * * *', 'apps.timetable.schedule.cron.execute_timetable','>> ' + os.path.join(BASE_DIR,'log/debug.log' + ' 2>&1 ')),
+    ('*/15 * * * *', 'apps.timetable.schedule.cron.execute_timetable','>> ' + os.path.join(BASE_DIR,'log/debug2.log' + ' 2>&1 ')),
 ]
 
 CRONTAB_EXECUTABLE = '/usr/bin/crontab'

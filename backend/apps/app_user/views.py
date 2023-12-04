@@ -6,10 +6,10 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework_simplejwt.authentication import JWTAuthentication
+from .models import AppUser
 
 from .serializers import UserRegisterSerializer, UserLoginSerializer, UserSerializer
 from rest_framework import permissions, status
-from .validations import custom_validation, validate_email, validate_password
 from rest_framework.authtoken.models import Token
 
 
@@ -20,47 +20,65 @@ UserModel = get_user_model()
 
 
 class UserLogin(APIView):
+    """
+    API View for user login.
+    """
     permission_classes = (permissions.AllowAny,)
-    # authentication_classes = (SessionAuthentication,)
 
     def post(self, request):
+        """
+        Handle user login.
+
+        Parameters:
+        - `email` (str): User's email address.
+        - `password` (str): User's password.
+
+        Returns:
+        - `user` (UserSerializer): Serialized user information.
+        - `token` (str): JWT token for authenticated user.
+        """
         data = request.data
-        assert validate_email(data)
-        assert validate_password(data)
         serializer = UserLoginSerializer(data=data)
         if serializer.is_valid(raise_exception=True):
             user = serializer.check_user(data)
-            # login(request, user)
             token, created = Token.objects.get_or_create(user=user)
             return Response({'user': serializer.data,'token': token.key}, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class UserLogout(APIView):
+    """
+    API View for user logout.
+    """
     authentication_classes = (JWTAuthentication,)
     permission_classes = (IsAuthenticated,)
 
     def post(self, request):
-        # logout(request)
+        """
+        Handle user logout.
+        """
         request.auth.delete()
         return Response(status=status.HTTP_200_OK)
 
 
 class UserView(APIView):
+    """
+    API View for user-related operations.
+    """
     authentication_classes = (JWTAuthentication,)
     permission_classes = (IsAuthenticated,)
 
-    def get(self, request):
-        serializer = UserSerializer(request.user)
-        return Response({'user': serializer.data}, status=status.HTTP_200_OK)
+    def get(self, request, studyId=None, user_id=None):
+        """
+        Get user information based on study or user ID.
 
+        Parameters:
+        - `studyId` (str): Study ID for filtering users.
+        - `user_id` (int): User ID for retrieving specific user details.
 
-
-class StudyUsersView(APIView):
-    authentication_classes = (JWTAuthentication,)
-    permission_classes = (IsAuthenticated,)
-
-    def get(self, request, studyId=None):
+        Returns:
+        - List of serialized user information.
+        """
         if studyId:
             try:
                 study = Study.objects.get(studyName=studyId)
@@ -69,12 +87,28 @@ class StudyUsersView(APIView):
                 return Response(serializer.data,status=status.HTTP_200_OK)
             except Study.DoesNotExist:
                 return Response({"error": "Study not found"},status=status.HTTP_404_NOT_FOUND)
+        if user_id:
+            try:
+                user = UserModel.objects.get(id=user_id)
+                serializer = UserSerializer(user)
+                return Response(serializer.data,status=status.HTTP_200_OK)
+            except Exception as e:
+                return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
         else:
             users = UserModel.objects.all()
             serializer = UserSerializer(users, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
 
     def put(self, request, user_id):
+        """
+        Update user information.
+
+        Parameters:
+        - `user_id` (int): ID of the user to be updated.
+
+        Returns:
+        - `user` (UserSerializer): Serialized user information.
+        """
         try:
             user = UserModel.objects.get(id=user_id)
             serializer = UserRegisterSerializer(user,data=request.data)
@@ -88,10 +122,25 @@ class StudyUsersView(APIView):
 
 
 class ChangePasswordView(APIView):
+    """
+    API View for changing user password.
+    """
     authentication_classes = (JWTAuthentication,)
     permission_classes = (IsAuthenticated,)
 
     def post(self, request, id):
+        """
+        Change user password.
+
+        Parameters:
+        - `id` (int): ID of the user changing the password.
+        - `oldPassword` (str): User's current password.
+        - `newPassword` (str): User's new password.
+
+        Returns:
+        - Success message or error message.
+        """
+        # Implemen
         old_password = request.data.get('oldPassword')
         new_password = request.data.get('newPassword')
 
@@ -107,14 +156,31 @@ class ChangePasswordView(APIView):
 
 
 class UserRegister(APIView):
+    """
+    API View for user registration.
+    """
     authentication_classes = (JWTAuthentication,)
     permission_classes = (IsAuthenticated,)
-    #eventuell isAdminUser -> nur Admin soll User registrieren können
 
     def post(self, request):
-        serializer = UserRegisterSerializer(data=request.data)
-        if serializer.is_valid(raise_exception=True):
-            user = serializer.create(request.data)
-            if user:
-                return Response({'message': 'User registered successfully'}, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        """
+        Handle user registration.
+
+        Parameters:
+        - `email` (str): User's email address.
+        - `password` (str): User's password.
+        - Additional user details.
+
+        Returns:
+        - Success message or error message.
+        """
+        try:
+            user = UserModel.objects.get(email=request.data["email"])
+            return Response({'error': 'User already exists'}, status=status.HTTP_400_BAD_REQUEST)
+        except AppUser.DoesNotExist:
+            serializer = UserRegisterSerializer(data=request.data)
+            if serializer.is_valid(raise_exception=True):
+                user = serializer.create(request.data)
+                if user:
+                    return Response({'message': 'User registered successfully'}, status=status.HTTP_201_CREATED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

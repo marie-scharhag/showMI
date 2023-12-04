@@ -6,18 +6,28 @@ from django.utils import timezone
 
 
 def execute_timetable():
+    """
+    Executes the timetable for the current time, generating and displaying lecture images or default images on beamers.
+
+    This function retrieves the current weekday and iterates over all rooms, connecting to beamers associated with each room.
+    It then retrieves lectures and documents scheduled for the current time, generates images for them, and displays the images on connected beamers.
+    If no scheduled lectures or documents are found, it generates and displays default images on connected beamers.
+    """
     now = timezone.now()
     weekday = now.weekday()
     weekday_value = Lecture.WEEK_DAYS[weekday][0]
 
     rooms = Room.objects.all()
     for room in rooms:
-        beamer = ExampleBeamer(ip_address=room.beamer, port=room.beamer)
-        beamer.connect()
+        beamerObjects = Beamer.objects.find(room=room)
+        beamers =[]
+        for beamer in beamerObjects:
+            connect_beamer = ExampleBeamer(ip_address=beamer.ip_address, port=beamer.port)
+            beamers.append(connect_beamer)
+            # connect_beamer.connect()
 
         print("ROOM", room)
         lectures = Lecture.objects.filter(weekday=weekday_value,room=room)
-        # print(lectures)
         images = []
         for lecture in lectures:
             if lecture_in_time(lecture, now):
@@ -47,13 +57,25 @@ def execute_timetable():
 
         print(images)
         if images:
-            generate_slideshow(room, images)
+            for beamer in beamers:
+                generate_slideshow(beamer, images)
         else:
             default_image = generate_default_image(room)
-            send_image(beamer, default_image)
+            for beamer in beamers:
+                send_image(beamer, default_image)
 
 
 def lecture_in_time(lecture, now):
+    """
+    Checks if the given lecture is currently ongoing.
+
+    Args:
+    - lecture (Lecture): The lecture object.
+    - now (datetime): The current datetime.
+
+    Returns:
+    - bool: True if the lecture is ongoing, False otherwise.
+    """
     lecture_start_time = timezone.make_aware(datetime.combine(now.date(), lecture.start) - timedelta(minutes=15))
     lecture_end_time = timezone.make_aware(datetime.combine(now.date(), lecture.end) + timedelta(minutes=15))
 
@@ -63,6 +85,16 @@ def lecture_in_time(lecture, now):
 
 
 def next_lecture_for_day(lectures, now):
+    """
+    Finds the next scheduled lectures for the current day.
+
+    Args:
+    - lectures (QuerySet): The queryset of Lecture objects.
+    - now (datetime): The current datetime.
+
+    Returns:
+    - list: List of Lecture objects representing the next scheduled lectures for the day.
+    """
     next_lectures = []
     for lecture in lectures:
         lecture_start_time = timezone.make_aware(datetime.combine(now.date(), lecture.start))
@@ -73,6 +105,13 @@ def next_lecture_for_day(lectures, now):
 
 
 def generate_slideshow(beamer, images):
+    """
+    Generates a slideshow and displays it on the specified beamer.
+
+    Args:
+    - beamer (ExampleBeamer): The beamer object to display the slideshow on.
+    - images (list): List of image streams for the slideshow.
+    """
     if len(images) >= 1:
         pass
     else:
@@ -80,6 +119,15 @@ def generate_slideshow(beamer, images):
 
 
 def send_image(beamer,image):
+    """
+    Connects to the specified beamer and displays the given image.
+
+    Args:
+    - beamer (ExampleBeamer): The beamer object to connect to.
+    - image: The image to display on the beamer.
+    """
+
+    beamer.connect()
     beamer.display_image(image)
 
 

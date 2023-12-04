@@ -33,8 +33,8 @@ urlpatterns = [
     # re_path('rest-auth/', include('rest_auth.urls')),
     # re_path('rest-auth/registration/', include('rest_auth.registration.urls')),
     path('admin/', admin.site.urls),
-    path('api/', include('apps.app_user.api.urls')),
-    path('api/', include('apps.app_user.urls')),
+    path('api/users/', include('apps.app_user.api.urls')),
+    path('api/users/', include('apps.app_user.urls')),
     path('api/', include('apps.timetable.urls')),
 ]
 
