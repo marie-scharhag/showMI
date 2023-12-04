@@ -8,14 +8,16 @@ import {RoomMultiselect} from "../Fields/RoomMultiSelect";
 import {postDocument} from "../../services/DocumentService";
 import {useAsyncFn} from "react-use";
 import {client} from "../../App";
+import {Variant} from "react-bootstrap/types";
 
 
 interface Props {
     showModal: boolean;
     closeModal: () => void;
+    showToastHandler: (content: string, variant: Variant) => void;
 }
 
-export function DocumentModal({showModal, closeModal}: Props) {
+export function DocumentModal({showModal, closeModal, showToastHandler}: Props) {
     const {authTokens} = useAuth();
     const [rooms, setRooms] = useState<Room[]>([]);
     const [title, setTitle] = useState("")
@@ -51,9 +53,9 @@ export function DocumentModal({showModal, closeModal}: Props) {
         try{
             await postDocument(formData, authTokens)
             closeModal()
-            //TODO success toast
+            showToastHandler("Document upload successfully", "success")
         }catch (e) {
-            //TODO error Toast
+            showToastHandler("Error at Document upload", "danger")
         }
 
     })

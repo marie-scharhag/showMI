@@ -8,6 +8,7 @@ import {useAuth} from "../../auth/AuthProvider";
 import {postInfo} from "../../services/InformationService";
 import {useAsyncFn} from "react-use";
 import {postDocument} from "../../services/DocumentService";
+import {Variant} from "react-bootstrap/types";
 
 
 interface Props {
@@ -15,9 +16,10 @@ interface Props {
     info?: Information;
     showModal: boolean;
     closeModal: () => void;
+    showToastHandler: (content: string, variant: Variant) => void;
 }
 
-export function InfoModal({lectures, info, showModal, closeModal}: Props) {
+export function InfoModal({lectures, info, showModal, closeModal, showToastHandler}: Props) {
     const {authTokens} = useAuth();
     const [startDate, setStartDate] = useState(info?.start.split('T')[0]||"")
     const [startTime, setStartTime] = useState(info?.start.split('T')[1].slice(0,5)||"")
@@ -25,34 +27,6 @@ export function InfoModal({lectures, info, showModal, closeModal}: Props) {
     const [endTime, setEndTime] = useState(info?.end.split('T')[1].slice(0,5)||"")
     const [infoState, setInfoState] = useState(info?.info||"")
 
-    // function handleUpload(e: FormEvent) {
-    //     e.preventDefault()
-    //     if(!lectures || !authTokens) return
-    //
-    //     const start = new Date(startDate + ' ' + startTime)
-    //     const end = new Date(endDate + ' ' + endTime)
-    //
-    //     const info: Information = {
-    //         info: infoState || "",
-    //         start: start.toISOString(),
-    //         end: end.toISOString(),
-    //     }
-    //     console.log(JSON.stringify({info:info,lectures:lectures}), authTokens)
-    //
-    //     await postInfo(info, lectures, authTokens)
-    //     // client.post('/api/info/', JSON.stringify({info:info,lectures:lectures}),{
-    //     //         headers: {
-    //     //             'Authorization': `Bearer ${authTokens?.access}`,
-    //     //             'Content-Type': 'application/json',
-    //     //         },
-    //     //     })
-    //     //         .then((response) => {
-    //     //             console.log('Success:', response.data);
-    //     //         }).catch((error) => {
-    //     //         console.error('Error:', error);
-    //     //     });
-    //
-    // }
 
         const [uploadInfoState, uploadInfo] = useAsyncFn(async (e, startDate: string, endDate: string,startTime:string, endTime:string, infoState:string, lectures:Lecture[]|undefined) => {
         e.preventDefault()
@@ -71,9 +45,9 @@ export function InfoModal({lectures, info, showModal, closeModal}: Props) {
             try {
                 await postInfo(info, lectures, authTokens)
                 closeModal()
-                //TODO success toast
+                showToastHandler("Info upload successfully", "success")
             }catch (e) {
-                //TODO error Toast
+                showToastHandler("Error at Info upload", "danger")
             }
     })
 

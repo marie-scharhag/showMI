@@ -5,14 +5,16 @@ import Button from "react-bootstrap/Button";
 import React, {FormEvent, useState} from "react";
 import styled from "styled-components";
 import {client} from "../../App";
+import {Variant} from "react-bootstrap/types";
 
 interface Props {
     room: Room;
     showModal: boolean;
     closeModal: () => void;
+    showToastHandler: (content: string, variant: Variant) => void;
 }
 
-export function BeamerModal({room, showModal, closeModal}: Props) {
+export function BeamerModal({room, showModal, closeModal, showToastHandler}: Props) {
     const {authTokens} = useAuth();
     const [name, setName] = useState("")
     const [ipAddress, setIpAddress] = useState("")

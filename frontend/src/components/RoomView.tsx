@@ -16,9 +16,12 @@ import Button from "react-bootstrap/Button";
 import {BeamerModal} from "./Modale/BeamerModal";
 import {saveRoomChanges} from "../services/RoomService";
 import {LectureModal} from "./Modale/LectureModal";
+import {Variant} from "react-bootstrap/types";
 
-//TODO select hinzufügen
-export function RoomView() {
+interface Props {
+    showToastHandler: (content: string, variant: Variant) => void;
+}
+export function RoomView({showToastHandler}:Props) {
     const navigate = useNavigate()
     const {authTokens} = useAuth()
     const {state} = useLocation();
@@ -71,7 +74,7 @@ export function RoomView() {
             generateLectureEvents(lectures)
             return lectures
         } catch (e) {
-            //TODO Toast Error
+            //TODO ToastComponent Error
         }
 
     })
@@ -86,16 +89,15 @@ export function RoomView() {
             generateDocumentEvents(documents)
             return documents
         } catch (e) {
-            //TODO Error Toast
+            //TODO Error ToastComponent
         }
 
     })
 
     const generateWeekdayEvents = (lecture: Lecture, startDate: Date, endDate: Date, weekday: number) => {
         const events: Array<Event> = [];
-        let start = new Date(startDate);
-        let end = new Date(endDate);
-        console.log(startDate, endDate)
+        const start = new Date(startDate);
+        const end = new Date(endDate);
 
         while (start <= end) {
             // Find the next occurrence of the specified weekday
@@ -175,14 +177,14 @@ export function RoomView() {
                     <Col><Button onClick={hanndleRoomChange}>Submit</Button></Col>
                     <Col xs="3">
                         <Button onClick={openModal}>Manage Beamer</Button>
-                        <BeamerModal room={room} showModal={showModal} closeModal={closeModal}/>
+                        <BeamerModal showToastHandler={showToastHandler} room={room} showModal={showModal} closeModal={closeModal}/>
                         {/*<Form.Control className="input-field" type="text" placeholder="Beamer" value={room.beamer}/>*/}
                     </Col>
                 </Row>
             </RoomDiv>
             <Calendar className="mx-3 p-3">
                 <Button onClick={openLectureModal}>Neue Lehrveranstaltung</Button>
-                <LectureModal room={room} showModal={showLectureModal} closeModal={closeLectureModal}/>
+                <LectureModal showToastHandler={showToastHandler} room={room} showModal={showLectureModal} closeModal={closeLectureModal}/>
                 <Fullcalendar
                     plugins={[timeGridPlugin, bootstrap5Plugin]}
                     locale={"de"}

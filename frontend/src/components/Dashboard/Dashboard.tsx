@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from "styled-components";
 import {UsersView} from "./UsersView";
 import {Breadcrumb, Col, Row, Stack} from "react-bootstrap";
@@ -12,18 +12,23 @@ import {LectureView} from "../LectureView";
 import {useAuth} from "../../auth/AuthProvider";
 import {Outlet, useNavigate, Link, useLocation} from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import {Variant} from "react-bootstrap/types";
 
-export function Dashboard() {
+interface Props {
+    showToastHandler: (content: string, variant: Variant) => void;
+}
+export function Dashboard({showToastHandler}:Props) {
     const {user} = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
     const pathnames = location.pathname.split('/').filter((x) => x);
 
+
     useEffect(() => {
         if (user.is_staff) {
             navigate('/admin');
         } else {
-            navigate(`/teacher/${user.first_name}_${user.last_name}`,{state:{user:user}});
+            navigate(`/teacher/${user.first_name}_${user.last_name}`, {state: {user: user}});
         }
     }, [user.is_staff])
 

@@ -21,8 +21,13 @@ import {RoomMultiselect} from "./Fields/RoomMultiSelect";
 import {UserMultiselect} from "./Fields/UsersMultiSelect";
 import {InfoField} from "./Fields/InfoField";
 import {InfoModal} from "./Modale/InfoModal";
+import {Variant} from "react-bootstrap/types";
 
-export function LectureView() {
+interface Props{
+    showToastHandler: (content: string, variant: Variant) => void;
+}
+
+export function LectureView({showToastHandler}:Props) {
     const {state} = useLocation();
     const navigate = useNavigate()
     const {authTokens} = useAuth()
@@ -60,10 +65,16 @@ export function LectureView() {
 
     const [imageState, getImage] = useAsyncFn(async () => {
         if (!authTokens) return
-        return await getImageForLecture(lecture, room, authTokens)
+        const response = await getImageForLecture(lecture, room, authTokens)
+        try {
+            const base64 = btoa(new Uint8Array(response.data).reduce((data, byte) => data + String.fromCharCode(byte), ''))
+            return base64
+        } catch (e) {
+            console.error('Error while loading Image:', e);
+        }
     })
 
-    const [saveLectureState, saveLecture] = useAsyncFn(async (e,teachers,rooms,lectureNr,lectureName,semester,typ,group,weekday,startTime,endTime,infos) => {
+    const [saveLectureState, saveLecture] = useAsyncFn(async (e, teachers, rooms, lectureNr, lectureName, semester, typ, group, weekday, startTime, endTime, infos) => {
         e.preventDefault()
         if (!authTokens) return
         console.log(teachers)
@@ -84,11 +95,11 @@ export function LectureView() {
             semester_timetable: lecture.semester_timetable,
         };
 
-        try{
-            await putLecture(lecture.id, lectureObject ,authTokens)
-            //TODO Toast Sucess
-        }catch (e) {
-            //TODO Toast error
+        try {
+            await putLecture(lecture.id, lectureObject, authTokens)
+            //TODO ToastComponent Sucess
+        } catch (e) {
+            //TODO ToastComponent error
         }
 
 
@@ -97,12 +108,12 @@ export function LectureView() {
     const [deleteLectureState, delLecture] = useAsyncFn(async (e) => {
         e.preventDefault()
         if (!authTokens) return
-        try{
+        try {
             await deleteLecture(lecture.id, authTokens)
             navigate(-1)
-            //TODO Toast Delete Sucess
-        }catch (e) {
-            //TODO Toast Delete error
+            //TODO ToastComponent Delete Sucess
+        } catch (e) {
+            //TODO ToastComponent Delete error
         }
 
 
@@ -115,7 +126,7 @@ export function LectureView() {
                 <Col className="left" lg="8">
                     <div className="image-container">
                         {imageState.loading && <div>loading...</div>}
-                        {imageState.error && <div>error while loading</div>}
+                        {imageState.error && <div>error while loading Imagedata</div>}
                         {imageState.value &&
                             <img className="image" src={`data:;base64,${imageState.value}`} alt={"Image"}/>}
                     </div>
@@ -191,15 +202,17 @@ export function LectureView() {
                             </FormGroup>
                             <FormGroup className="mb-3">
                                 {infos.length > 0 &&
-                                    infos.map(info => (<InfoField lecture={lecture} info={info}/>))
+                                    infos.map(info => (<InfoField showToastHandler={showToastHandler} lecture={lecture} info={info}/>))
                                 }
                                 <Button onClick={openModal}>Add Info</Button>
-                                <InfoModal lectures={[lecture]} showModal={showModal} closeModal={closeModal}/>
+                                <InfoModal showToastHandler={showToastHandler} lectures={[lecture]} showModal={showModal} closeModal={closeModal}/>
                             </FormGroup>
                             <div className="buttons">
                                 <Button variant="secondary" onClick={handleGoBack}>Zurück</Button>
-                                <Button variant="danger" onClick={delLecture}>{deleteLectureState.loading ? "Loading...":"Löschen"}</Button>
-                                <Button type="submit" className="submit-button" onClick={(e) => saveLecture(e,teachers,rooms,lectureNr,lectureName,semester,typ,group,weekday,startTime,endTime,infos)}>Speichern</Button>
+                                <Button variant="danger"
+                                        onClick={delLecture}>{deleteLectureState.loading ? "Loading..." : "Löschen"}</Button>
+                                <Button type="submit" className="submit-button"
+                                        onClick={(e) => saveLecture(e, teachers, rooms, lectureNr, lectureName, semester, typ, group, weekday, startTime, endTime, infos)}>Speichern</Button>
                             </div>
                         </Form>
                     </Sidebar>

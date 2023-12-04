@@ -4,6 +4,7 @@ import axios from 'axios';
 import {UserObject} from "../../Objects";
 import {useAuth} from "../../auth/AuthProvider";
 import {changePW} from "../../services/UserService";
+import {Variant} from "react-bootstrap/types";
 
 
 interface Props {
@@ -22,9 +23,9 @@ const ChangePasswordModal = ({showModal, closeModal, user}: Props) => {
         try {
             await changePW(user, authTokens, oldPassword, newPassword);
             closeModal();
+
         } catch (error) {
-            //TODO: Toast Error
-            console.error('Error on PW change:', error);
+            console.log(error)
         }
     };
 

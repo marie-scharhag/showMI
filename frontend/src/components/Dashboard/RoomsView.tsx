@@ -10,15 +10,13 @@ import {RoomList} from "../Items/RoomList";
 import {getAllRooms, getRoomsInStudy} from "../../services/RoomService";
 import Button from "react-bootstrap/Button";
 import {RoomModal} from "../Modale/RoomModal";
+import {Variant} from "react-bootstrap/types";
 
-// interface Room{
-//     roomNr: string;
-//     floor: string;
-//     building: string;
-//     beamer: string;
-// }
+interface Props {
+    showToastHandler: (content: string, variant: Variant) => void;
+}
 
-export function RoomsView() {
+export function RoomsView({showToastHandler}:Props) {
     const {authTokens} = useAuth()
     const [showModal, setShowModal] = useState(false);
 
@@ -45,9 +43,12 @@ export function RoomsView() {
 
     return (
         <Container>
-            <Button onClick={openModal}>New Room</Button>
-            <RoomModal showModal={showModal} closeModal={closeModal}/>
-            <div className="py-4">
+            <div className="icon col-auto ms-3">
+                <i onClick={openModal} className="bi bi-plus-square-fill"></i>
+            </div>
+
+            <RoomModal showToastHandler={showToastHandler} showModal={showModal} closeModal={closeModal}/>
+            <div  className="py-4 stack">
                 <h3 className="head pb-3">Rooms</h3>
 
                 {roomsState.loading && <div>Loading...</div>}
@@ -70,4 +71,17 @@ const Container = styled.div`
   .head {
     text-align: center;
   }
+
+  .stack {
+    max-height: calc(100vh - 215px);
+    overflow: scroll;
+  }
+
+  .icon {
+    display: flex;
+
+    font-size: 2rem;
+    color: #9BC328;
+  }
+
 `;

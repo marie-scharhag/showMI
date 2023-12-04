@@ -6,19 +6,23 @@ import styled from "styled-components";
 import {useAsyncFn} from "react-use";
 import {useAuth} from "../../auth/AuthProvider";
 import {editUser, registerUser} from "../../services/UserService";
+import {ToastComponent} from "../ToastComponent";
+import {Variant} from "react-bootstrap/types";
 
 interface Props {
     user?: UserObject;
     showModal: boolean;
     closeModal: () => void;
+    showToastHandler: (content: string, variant: Variant) => void;
 }
 
-export function UserModal({user, showModal, closeModal}: Props) {
+export function UserModal({user, showModal, closeModal, showToastHandler}: Props) {
     const {authTokens} = useAuth()
     const [firstName, setFirstName] = useState(user?.first_name ||"")
     const [lastName, setLastName] = useState(user?.last_name||"")
     const [email, setEmail] = useState(user?.email||"")
     const [isStaff, setIsStaff] = useState(user?.is_staff||false)
+
 
 
     const [uploadUserState, uploadUser] = useAsyncFn(async (e,firstName:string,lastName:string,email:string,isStaff:boolean, user:UserObject|undefined) =>{
@@ -33,13 +37,14 @@ export function UserModal({user, showModal, closeModal}: Props) {
             try {
                 await editUser(user,authTokens)
                 closeModal()
-                //TODO sucess Toast
+                showToastHandler('User edited successfully', "success");
             }catch (e) {
                 console.log("ERROR",e)
-                //TODO error Toast
+                showToastHandler('User added successfully', "danger");
             }
 
         }else{
+            // if(!showToastHandler)return
             const formData = new FormData()
             formData.append("first_name",firstName)
             formData.append("last_name",lastName)
@@ -48,10 +53,10 @@ export function UserModal({user, showModal, closeModal}: Props) {
             try {
                 await registerUser(formData,authTokens)
                 closeModal()
-                //TODO sucess Toast
+                showToastHandler('User added successfully', "success");
             }catch (e) {
                 console.log("ERROR",e)
-                //TODO error Toast
+                showToastHandler('User already exists', "danger");
             }
         }
     })

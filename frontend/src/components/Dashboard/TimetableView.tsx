@@ -9,8 +9,13 @@ import {useAsyncFn} from "react-use";
 import {getAllTimetables} from "../../services/TimetableService";
 import {TimetableItem} from "../Items/TimetableItem";
 import {SemesterTimetable} from "../../Objects";
+import {Variant} from "react-bootstrap/types";
 
-export function TimetableView() {
+interface Props {
+    showToastHandler: (content: string, variant: Variant) => void;
+}
+
+export function TimetableView({showToastHandler}: Props) {
     const {authTokens} = useAuth();
     const [showModal, setShowModal] = useState(false);
 
@@ -39,9 +44,12 @@ export function TimetableView() {
     return (
         <Container>
             <div className="py-4">
+                <div className="icon col-auto ms-3">
+                    <i onClick={openModal} className="bi bi-plus-square-fill"></i>
+                </div>
                 <h3 className="head pb-3">Stundenplan</h3>
-                <Button onClick={openModal}>Upload new Timetable</Button>
-                <TimetableModal showModal={showModal} closeModal={closeModal}/>
+
+                <TimetableModal showToastHandler={showToastHandler} showModal={showModal} closeModal={closeModal}/>
                 {timetableState.loading && <div>loading...</div>}
                 {timetableState.error && <div>Error while loading</div>}
                 {timetableState.value && timetableState.value.map(timetable => (
@@ -67,5 +75,12 @@ const Container = styled.div`
   .submit-button {
     background: #9BC328 !important;
     border-color: #9BC328 !important;
+  }
+
+  .icon {
+    display: flex;
+
+    font-size: 2rem;
+    color: #9BC328;
   }
 `;

@@ -10,14 +10,16 @@ import {InfoModal} from "./InfoModal";
 import {postLecture, putLecture} from "../../services/LectureService";
 import {useAuth} from "../../auth/AuthProvider";
 import {useAsyncFn} from "react-use";
+import {Variant} from "react-bootstrap/types";
 
 interface Props {
     room: Room;
     showModal: boolean;
     closeModal: () => void;
+    showToastHandler: (content: string, variant: Variant) => void;
 }
 
-export function LectureModal({room, showModal, closeModal}: Props) {
+export function LectureModal({room, showModal, closeModal, showToastHandler}: Props) {
     const {authTokens} = useAuth()
     const [rooms, setRooms] = useState<Room[]>([room]);
     const [lectureNr, setLectureNr] = useState(0)
@@ -29,30 +31,7 @@ export function LectureModal({room, showModal, closeModal}: Props) {
     const [startTime, setStartTime] = useState("")
     const [endTime, setEndTime] = useState("")
     const [teachers, setTeachers] = useState<UserObject[]>([])
-    // const [infos, setInfos] = useState<Information[]>([])
 
-    // const handleUpload = (e: FormEvent) => {
-    //     e.preventDefault()
-    //     if(!authTokens) return
-    //     const formData = new FormData()
-    //     formData.append("lectureNr", lectureNr.toString())
-    //     formData.append("lectureName", lectureName)
-    //     formData.append("semester", semester.toString())
-    //     formData.append("typ", typ)
-    //     formData.append("group", group)
-    //     formData.append("weekday", weekday)
-    //     formData.append("start", startTime)
-    //     formData.append("end", endTime)
-    //     // formData.append("timetable", "")
-    //     rooms.forEach((room, index) => {
-    //         formData.append(`rooms`, `${room.roomNr}`);
-    //     });
-    //     teachers.forEach((teacher, index) => {
-    //         formData.append(`teacher`, `${teacher.id}`);
-    //     });
-    //     // study: study,
-    //     postLecture(formData,authTokens)
-    // };
 
     const [saveLectureState, saveLecture] = useAsyncFn(async (e,teachers:UserObject[],rooms:Room[],lectureNr:number,lectureName:string,semester:number,typ:LectureTypes,group:string,weekday:Weekdays,startTime:string,endTime:string) => {
         e.preventDefault()
@@ -75,9 +54,9 @@ export function LectureModal({room, showModal, closeModal}: Props) {
         try{
             await postLecture(formData,authTokens)
             closeModal()
-            //TODO success Toast
+            showToastHandler("Lecture upload successfully", "success")
         }catch (e) {
-            //TODO error Toast
+            showToastHandler("Error at Lecture upload", "danger")
         }
 
 

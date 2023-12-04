@@ -12,10 +12,13 @@ import {EventClickArg} from "@fullcalendar/core";
 import Button from "react-bootstrap/Button";
 import {InfoModal} from "./Modale/InfoModal";
 import {useAsyncFn} from "react-use";
+import {Variant} from "react-bootstrap/types";
 
+interface Props {
+    showToastHandler: (content: string, variant: Variant) => void;
+}
 
-//TODO documents auch anzeigen
-export function TeacherView() {
+export function TeacherView({showToastHandler}:Props) {
     const [calendarKey, setCalendarKey] = useState(0);
     const navigate = useNavigate()
     const {state} = useLocation();
@@ -43,11 +46,12 @@ export function TeacherView() {
         try {
             const response = await getLecturesForTeacher(user, authTokens)
             const lectures: Array<Lecture> = response.data
+            console.log(lectures)
             setLectureEvents([])
             generateLectureEvents(lectures)
             return lectures
         } catch (e) {
-            //TODO Toast Error
+            //TODO ToastComponent Error
         }
 
     })
@@ -55,24 +59,26 @@ export function TeacherView() {
 
     const generateWeekdayEvents = (lecture: Lecture, numWeeks: number, weekday: number) => {
         const events: Array<Event> = [];
-        let currentDate = new Date();
+        const start = new Date(lecture.semester_timetable.semester_start);
+        const end = new Date(lecture.semester_timetable.semester_end);
 
-        for (let i = 0; i < numWeeks; i++) {
-            // Find the next occurrence of the specified weekday
-            while (currentDate.getDay() !== weekday) {
-                currentDate.setDate(currentDate.getDate() + 1);
+
+        while (start <= end) {
+            while (start.getDay() !== weekday) {
+                start.setDate(start.getDate() + 1);
             }
 
             events.push({
                 title: lecture.lectureName,
-                start: currentDate.toISOString().split('T')[0] + ' ' + lecture.start,
-                end: currentDate.toISOString().split('T')[0] + ' ' + lecture.end,
+                start: start.toISOString().split('T')[0] + ' ' + lecture.start,
+                end: start.toISOString().split('T')[0] + ' ' + lecture.end,
                 content: lecture,
                 color: "#9BC328",
             });
 
-            currentDate.setDate(currentDate.getDate() + 7); // Move to the next week
+            start.setDate(start.getDate() + 7);
         }
+
         return events;
     };
 
@@ -122,12 +128,6 @@ export function TeacherView() {
         }else{
             navigate(`/lecture/${e.event.extendedProps.content.id}`, {state: {lecture: e.event.extendedProps.content}})
         }
-
-        // if (eventData.content.lectureNr) {
-        //     navigate(`/lecture/${eventData.content.id}`, {state: {lecture: eventData.content, room: room}})
-        // } else {
-        //     navigate(`/document/${eventData.content.id}`, {state: {document: eventData.content, room: room}})
-        // }
     }
 
     return (
@@ -155,7 +155,7 @@ export function TeacherView() {
                                 onChange={e => setSelectState(e.target.checked)}/>
                     <Button onClick={openModal}>Create Info</Button>
                 </Form.Group>
-                <InfoModal lectures={selectedLectures} showModal={showModal} closeModal={closeModal}/>
+                <InfoModal lectures={selectedLectures} showModal={showModal} closeModal={closeModal} showToastHandler={showToastHandler}/>
                 <Fullcalendar
                     key={calendarKey}
                     plugins={[timeGridPlugin, bootstrap5Plugin]}

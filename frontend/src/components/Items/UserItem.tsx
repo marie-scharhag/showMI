@@ -6,12 +6,14 @@ import {useAuth} from "../../auth/AuthProvider";
 import {UserObject} from "../../Objects";
 import {useNavigate} from "react-router-dom";
 import {UserModal} from "../Modale/UserModal";
+import {Variant} from "react-bootstrap/types";
 
 interface Props {
     user: UserObject
+    showToastHandler: (content: string, variant: Variant) => void;
 }
 
-export function UserItem({user}: Props) {
+export function UserItem({user,showToastHandler}: Props) {
     const navigate = useNavigate()
     const [showModal, setShowModal] = useState(false);
 
@@ -46,7 +48,7 @@ export function UserItem({user}: Props) {
                         <Dropdown.Item href="#/action-2">Löschen</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
-                <UserModal user={user} showModal={showModal} closeModal={closeModal}/>
+                <UserModal user={user} showModal={showModal} closeModal={closeModal} showToastHandler={showToastHandler}/>
 
             </div>
         </Container>

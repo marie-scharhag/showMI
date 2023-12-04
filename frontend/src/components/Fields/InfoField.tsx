@@ -3,14 +3,16 @@ import {Form, FormGroup, FormLabel} from "react-bootstrap";
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import {InfoModal} from "../Modale/InfoModal";
+import {Variant} from "react-bootstrap/types";
 
 interface Props {
     info: Information;
     lecture:Lecture;
+       showToastHandler: (content: string, variant: Variant) => void;
     // setInfos: React.Dispatch<React.SetStateAction<Information[]>>;
 }
 
-export function InfoField({info,lecture}: Props) {
+export function InfoField({info,lecture,showToastHandler}: Props) {
     const [startDate, setStartDate] = useState(info.start.toString().split('T')[0])
     const [startTime, setStartTime] = useState(info.start.toString().split('T')[1].slice(0, 5))
     const [endDate, setEndDate] = useState(info.end.toString().split('T')[0])
@@ -34,7 +36,7 @@ export function InfoField({info,lecture}: Props) {
         <div className="mb-3" onClick={openModal}>
             <h6>Information</h6>
             <div>{info.info}</div>
-            <InfoModal lectures={[lecture]} info={info} showModal={showModal} closeModal={closeModal}/>
+            <InfoModal showToastHandler={showToastHandler} lectures={[lecture]} info={info} showModal={showModal} closeModal={closeModal}/>
             {/*<FormGroup className="my-3 date-time-picker">*/}
             {/*    <FormLabel label="End">Von</FormLabel>*/}
             {/*    <Form.Control className="" type="date" value={startDate?.toString()}*/}

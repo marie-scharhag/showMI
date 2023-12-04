@@ -35,7 +35,7 @@ export function DocumentView() {
         if (!authTokens) return
         await deleteDocument(document, authTokens)
         navigate(-1)
-        //TODO Toast Delete Sucess
+        //TODO ToastComponent Delete Sucess
     })
 
     const [saveDocumentState, handleSubmit] = useAsyncFn(async (e, documentName:string,rooms:Room[],startDate:string,startTime:string,endDate:string,endTime:string, onlyDisplay:boolean) => {
@@ -51,9 +51,9 @@ export function DocumentView() {
         document.onlyDisplay = onlyDisplay
         try{
             await putDocument(document.id,documentObjekt, authTokens)
-            //TODO success Toast
+            //TODO success ToastComponent
         }catch (e) {
-            //TODO error Toast
+            //TODO error ToastComponent
         }
 
     })

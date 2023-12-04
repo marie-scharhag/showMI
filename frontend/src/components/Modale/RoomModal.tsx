@@ -10,13 +10,15 @@ import {useAuth} from "../../auth/AuthProvider";
 import {createRoom} from "../../services/RoomService";
 import {useAsyncFn} from "react-use";
 import {postInfo} from "../../services/InformationService";
+import {Variant} from "react-bootstrap/types";
 
 interface Props {
     showModal: boolean;
     closeModal: () => void;
+    showToastHandler: (content: string, variant: Variant) => void;
 }
 
-export function RoomModal({showModal, closeModal}: Props) {
+export function RoomModal({showModal, closeModal, showToastHandler}: Props) {
     const {authTokens} = useAuth()
     const [roomNr, setRoomNr] = useState("")
     const [floor, setFloor] = useState("")
@@ -38,9 +40,9 @@ export function RoomModal({showModal, closeModal}: Props) {
         try {
             await createRoom(room, authTokens)
             closeModal()
-            //TODO success toast
+            showToastHandler("Room upload successfully", "success")
         } catch (e) {
-            //TODO error Toast
+            showToastHandler("Error at Room upload", "danger")
         }
     })
 

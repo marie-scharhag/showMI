@@ -17,9 +17,15 @@ export const AuthProvider = ({children}: { children: ReactNode }) => {
     const [user, setUser] = useState(tokens ? JSON.parse(JSON.stringify(jwtDecode(JSON.parse(tokens).access))).user : null);
     const [loading, setLoading] = useState(true);
 
+    /**
+     * Authenticates the user by making a POST request to the server with provided email and password.
+     *
+     * @param email - The user's email.
+     * @param password - The user's password.
+     */
     const login = async (email: string, password: string) => {
         await client.post(
-            '/api/token/',
+            '/api/users/token/',
             {
                 email: email,
                 password: password,
@@ -37,7 +43,7 @@ export const AuthProvider = ({children}: { children: ReactNode }) => {
                 navigate("/")
             }
         ).catch(() => {
-                //TODO lieber Toast alert nervt
+                //TODO lieber ToastComponent alert nervt
                 alert('You not authenticated')
             }
         )
@@ -45,6 +51,9 @@ export const AuthProvider = ({children}: { children: ReactNode }) => {
 
     }
 
+    /**
+     * Logs the user out by clearing authentication tokens and redirecting to the login page.
+     */
     const logout = () => {
         setAuthTokens(null);
         setUser(null);
@@ -53,10 +62,14 @@ export const AuthProvider = ({children}: { children: ReactNode }) => {
         navigate("/login");
     };
 
+    /**
+     * Updates the authentication token by making a POST request to the server with the refresh token.
+     * Also refreshes the user data.
+     */
     const updateToken = async () => {
         // console.log("UPDATE")
         if (authTokens) {
-            await client.post('/api/token/refresh/', {'refresh': authTokens?.refresh})
+            await client.post('/api/users/token/refresh/', {'refresh': authTokens?.refresh})
                 .then((response) => {
                     setAuthTokens(response.data)
                     const decodedJWTString = JSON.stringify(jwtDecode(response.data.access))
@@ -77,6 +90,7 @@ export const AuthProvider = ({children}: { children: ReactNode }) => {
         }
     }
 
+
     useEffect(() => {
         if (loading) {
             updateToken()
@@ -95,6 +109,12 @@ export const AuthProvider = ({children}: { children: ReactNode }) => {
         value={{user, authTokens, login, logout}}>{loading ? null : children}</AuthContext.Provider> //
 }
 
+    /**
+     * Custom hook to access the authentication context.
+     * Throws an error if used outside the AuthProvider.
+     *
+     * @returns The authentication context.
+     */
 export const useAuth = () => {
     const context = useContext(AuthContext);
     if (context === undefined) {

@@ -10,8 +10,12 @@ import {useAsyncFn} from "react-use";
 import {client} from "../../App";
 import {Document} from "../../Objects";
 import {getAllDocuments} from "../../services/DocumentService";
+import {Variant} from "react-bootstrap/types";
 
-export function DocumentsView(){
+interface Props {
+    showToastHandler: (content: string, variant: Variant) => void;
+}
+export function DocumentsView({showToastHandler}:Props){
 
     const navigate = useNavigate()
     const {authTokens} = useAuth()
@@ -41,10 +45,10 @@ export function DocumentsView(){
 
     return(
         <Container>
-            <Button variant="primary" onClick={openModal}>
-                Add Document
-            </Button>
-            <DocumentModal showModal={showModal} closeModal={closeModal}/>
+            <div className="icon col-auto ms-3">
+                <i onClick={openModal} className="bi bi-plus-square-fill"></i>
+            </div>
+            <DocumentModal showModal={showModal} closeModal={closeModal} showToastHandler={showToastHandler}/>
             <div className="py-4">
                 <h3 className="head pb-3">Dokumente</h3>
                 {documentsState.loading && <div>loading...</div>}
@@ -60,15 +64,22 @@ export function DocumentsView(){
 }
 
 const Container = styled.div`
-    background-color: #FBFDFD;
-    box-shadow: 0px 3px 20px #E0E0E0;
-    border-radius: 10px;
-    
-    .head{
-        text-align: center;
-    }
-    
-    .sub-head{
-        display: flex;
-    }
-    `;
+  background-color: #FBFDFD;
+  box-shadow: 0px 3px 20px #E0E0E0;
+  border-radius: 10px;
+
+  .head {
+    text-align: center;
+  }
+
+  .sub-head {
+    display: flex;
+  }
+
+  .icon {
+    display: flex;
+
+    font-size: 2rem;
+    color: #9BC328;
+  }
+`;
